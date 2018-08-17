@@ -20,16 +20,37 @@ class ViewController: UIViewController
         super.viewDidLoad()
         // Do any additional setup after loading the view, typically from a nib.
         
+        initialUISetup()
+        chainedAnimations()
+        
+    }
+    
+    func initialUISetup()
+    {
         self.textFieldOne.center.x -= self.view.bounds.width
         self.textFieldTwoo.center.x -= self.view.bounds.width
         self.button.center.x -= self.view.bounds.width
-        
-        //textFieldOne.center.x  -= view.bounds.width
-        UIView.animate(withDuration: 0.7) {
+    }
+    
+    func chainedAnimations()
+    {
+        UIView.animate(withDuration: 0.9, delay: 0.4, options: [.curveEaseOut], animations:
+          {
             self.textFieldOne.center.x += self.view.bounds.width
-            self.textFieldTwoo.center.x += self.view.bounds.width
-            self.button.center.x += self.view.bounds.width
-        }
+          },
+            completion:
+             { _ in
+                UIView.animate(withDuration: 0.9, delay: 0.3, options: [.curveEaseOut], animations:
+                  {
+                     self.textFieldTwoo.center.x += self.view.bounds.width
+                  }, completion:
+                     { _ in
+                        UIView.animate(withDuration: 0.9, delay: 0.1, options: [.curveEaseOut], animations:
+                        {
+                                self.button.center.x += self.view.bounds.width
+                        }, completion: nil)
+                     })
+            })
     }
 
 
