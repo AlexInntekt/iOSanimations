@@ -14,6 +14,7 @@
 		B232865F21277A9F007A8FBF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B232865D21277A9F007A8FBF /* LaunchScreen.storyboard */; };
 		B232866A21277A9F007A8FBF /* iOSanimationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B232866921277A9F007A8FBF /* iOSanimationsTests.swift */; };
 		B232867521277A9F007A8FBF /* iOSanimationsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B232867421277A9F007A8FBF /* iOSanimationsUITests.swift */; };
+		B232868321277D78007A8FBF /* UIButtonX.swift in Sources */ = {isa = PBXBuildFile; fileRef = B232868221277D78007A8FBF /* UIButtonX.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,7 @@
 		B232867021277A9F007A8FBF /* iOSanimationsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSanimationsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B232867421277A9F007A8FBF /* iOSanimationsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSanimationsUITests.swift; sourceTree = "<group>"; };
 		B232867621277A9F007A8FBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B232868221277D78007A8FBF /* UIButtonX.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UIButtonX.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -100,6 +102,7 @@
 				B232865421277A9D007A8FBF /* AppDelegate.swift */,
 				B232865621277A9D007A8FBF /* ViewController.swift */,
 				B232865821277A9D007A8FBF /* Main.storyboard */,
+				B232868421277D7E007A8FBF /* CustomViews */,
 				B232865B21277A9F007A8FBF /* Assets.xcassets */,
 				B232865D21277A9F007A8FBF /* LaunchScreen.storyboard */,
 				B232866021277A9F007A8FBF /* Info.plist */,
@@ -123,6 +126,14 @@
 				B232867621277A9F007A8FBF /* Info.plist */,
 			);
 			path = iOSanimationsUITests;
+			sourceTree = "<group>";
+		};
+		B232868421277D7E007A8FBF /* CustomViews */ = {
+			isa = PBXGroup;
+			children = (
+				B232868221277D78007A8FBF /* UIButtonX.swift */,
+			);
+			path = CustomViews;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -258,6 +269,7 @@
 			files = (
 				B232865721277A9D007A8FBF /* ViewController.swift in Sources */,
 				B232865521277A9D007A8FBF /* AppDelegate.swift in Sources */,
+				B232868321277D78007A8FBF /* UIButtonX.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
