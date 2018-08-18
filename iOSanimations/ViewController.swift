@@ -17,6 +17,8 @@ class ViewController: UIViewController
 
     
     var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
+    var animationContainerView: UIView!
+    
     
     override func viewDidLoad()
     {
@@ -24,9 +26,20 @@ class ViewController: UIViewController
         // Do any additional setup after loading the view, typically from a nib.
         
         initialUISetup()
+        
+        
+        animationContainerView = UIView(frame: view.bounds)
+        animationContainerView.frame = view.bounds
+        view.addSubview(animationContainerView!)
+        
         chainedAnimations()
+    }
+    
+    override func viewDidAppear(_ animated: Bool)
+    {
         
     }
+    
     
     @IBAction func button(_ sender: Any)
     {
@@ -81,12 +94,25 @@ class ViewController: UIViewController
                         UIView.animate(withDuration: 0.8, delay: 0.1, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.0 , options: [.curveEaseOut], animations:
                         {
                                 self.button.center.x += self.view.bounds.width
-                        }, completion: nil)
+                        }, completion: {_ in self.transitionOfChildView()})
                      })
             })
     }
 
-
+    func transitionOfChildView()
+    {
+        let newView = UIImageView(image: UIImage(named: "night")!)
+        newView.center = animationContainerView.center
+        //add the new view via transition
+        UIView.transition(with: animationContainerView,
+                          duration: 1,
+                          options: [.curveEaseOut, .transitionCrossDissolve],
+                          animations: {
+                            self.animationContainerView.addSubview(newView)
+        },
+                          completion: nil
+        )
+    }
 
 }
 
