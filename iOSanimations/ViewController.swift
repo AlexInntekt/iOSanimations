@@ -27,11 +27,6 @@ class ViewController: UIViewController
         
         initialUISetup()
         
-        
-        animationContainerView = UIView(frame: view.bounds)
-        animationContainerView.frame = view.bounds
-        view.addSubview(animationContainerView!)
-        
         chainedAnimations()
     }
     
@@ -52,18 +47,12 @@ class ViewController: UIViewController
         self.textFieldTwoo.isEnabled = false
         self.textFieldTwoo.textColor = UIColor.gray
         
-        UIView.animate(withDuration: 0.7, delay: 0.0, usingSpringWithDamping: 0.0, initialSpringVelocity: 0.0, options: [], animations:
+        UIView.animate(withDuration: 1, delay: 0.0, usingSpringWithDamping: 0.0, initialSpringVelocity: 0.0, options: [.curveEaseInOut], animations:
         {
-            
+            self.button.center.y *= 2
+            self.button.alpha = 0
         })
         
-        //trigger activity indicator:
-        activityIndicator.center.y = self.button.center.y
-        activityIndicator.center.x = self.button.center.x/1.5
-        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
-        self.view.addSubview(activityIndicator)
-        
-        activityIndicator.startAnimating()
         
     }
     
@@ -94,25 +83,12 @@ class ViewController: UIViewController
                         UIView.animate(withDuration: 0.8, delay: 0.1, usingSpringWithDamping: 0.5, initialSpringVelocity: 0.0 , options: [.curveEaseOut], animations:
                         {
                                 self.button.center.x += self.view.bounds.width
-                        }, completion: {_ in self.transitionOfChildView()})
+                        }, completion: {_ in })
                      })
             })
     }
 
-    func transitionOfChildView()
-    {
-        let newView = UIImageView(image: UIImage(named: "night")!)
-        newView.center = animationContainerView.center
-        //add the new view via transition
-        UIView.transition(with: animationContainerView,
-                          duration: 1,
-                          options: [.curveEaseOut, .transitionCrossDissolve],
-                          animations: {
-                            self.animationContainerView.addSubview(newView)
-        },
-                          completion: nil
-        )
-    }
+
 
 }
 
