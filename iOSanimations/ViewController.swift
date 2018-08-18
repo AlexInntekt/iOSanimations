@@ -41,14 +41,16 @@ class ViewController: UIViewController
         
         UIView.animate(withDuration: 0.7, delay: 0.0, usingSpringWithDamping: 0.0, initialSpringVelocity: 0.0, options: [], animations:
         {
-            //self.spinner.alpha = 1
             
         })
         
+        //trigger activity indicator:
         activityIndicator.center.y = self.button.center.y
-        activityIndicator.center.x = self.button.center.x/2
+        activityIndicator.center.x = self.button.center.x/1.5
         activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
-        self.button.addSubview(activityIndicator)
+        self.view.addSubview(activityIndicator)
+        
+        activityIndicator.startAnimating()
         
     }
     
@@ -65,13 +67,13 @@ class ViewController: UIViewController
     
     func chainedAnimations()
     {
-        UIView.animate(withDuration: 0.6, delay: 0.4, options: [.curveEaseOut], animations:
+        UIView.animate(withDuration: 0.4, delay: 0.4, options: [.curveEaseOut], animations:
           {
             self.textFieldOne.center.x += self.view.bounds.width
           },
             completion:
              { _ in
-                UIView.animate(withDuration: 0.6, delay: 0.3, options: [.curveEaseOut], animations:
+                UIView.animate(withDuration: 0.4, delay: 0.3, options: [.curveEaseOut], animations:
                   {
                      self.textFieldTwoo.center.x += self.view.bounds.width
                   }, completion:
