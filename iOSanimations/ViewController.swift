@@ -14,6 +14,9 @@ class ViewController: UIViewController
     @IBOutlet var textFieldOne: UITextField!
     @IBOutlet var textFieldTwoo: UITextField!
     @IBOutlet var button: UIButtonX!
+
+    
+    var activityIndicator: UIActivityIndicatorView = UIActivityIndicatorView()
     
     override func viewDidLoad()
     {
@@ -29,11 +32,24 @@ class ViewController: UIViewController
     {
         //do stuff
         
-        UIView.animate(withDuration: 0.5, delay: 0.0, usingSpringWithDamping: 0.0, initialSpringVelocity: 0.0, options: [], animations:
+        
+        //deactivate the the control with a placebo visual effect:
+        self.textFieldOne.isEnabled = false
+        self.textFieldOne.textColor = UIColor.gray
+        self.textFieldTwoo.isEnabled = false
+        self.textFieldTwoo.textColor = UIColor.gray
+        
+        UIView.animate(withDuration: 0.7, delay: 0.0, usingSpringWithDamping: 0.0, initialSpringVelocity: 0.0, options: [], animations:
         {
-            self.button.center.y += 70
-            self.button.alpha = 0
+            //self.spinner.alpha = 1
+            
         })
+        
+        activityIndicator.center.y = self.button.center.y
+        activityIndicator.center.x = self.button.center.x/2
+        activityIndicator.activityIndicatorViewStyle = UIActivityIndicatorViewStyle.gray
+        self.button.addSubview(activityIndicator)
+        
     }
     
     func initialUISetup()
@@ -43,6 +59,8 @@ class ViewController: UIViewController
         self.textFieldOne.center.x -= self.view.bounds.width
         self.textFieldTwoo.center.x -= self.view.bounds.width
         self.button.center.x -= self.view.bounds.width
+        
+  
     }
     
     func chainedAnimations()
