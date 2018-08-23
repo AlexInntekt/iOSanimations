@@ -44,9 +44,9 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="70" id="3eg-Oq-Q4C"/>
                                     <constraint firstItem="Kas-CU-9p9" firstAttribute="centerY" secondItem="UEw-dP-Dyj" secondAttribute="centerY" id="JY0-Gi-PHZ"/>
+                                    <constraint firstItem="UEw-dP-Dyj" firstAttribute="centerY" secondItem="bkJ-h1-Dty" secondAttribute="centerY" identifier="TitleCenterY" id="TCz-bA-x5c"/>
                                     <constraint firstAttribute="trailing" secondItem="Kas-CU-9p9" secondAttribute="trailing" constant="32" id="gwV-vo-Yeu"/>
                                     <constraint firstItem="UEw-dP-Dyj" firstAttribute="centerX" secondItem="bkJ-h1-Dty" secondAttribute="centerX" id="hBH-aY-LTL"/>
-                                    <constraint firstItem="UEw-dP-Dyj" firstAttribute="top" secondItem="bkJ-h1-Dty" secondAttribute="top" constant="22.5" id="ssU-m9-q6n"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -59,6 +59,7 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                     </view>
                     <connections>
+                        <outlet property="butonMenu" destination="Kas-CU-9p9" id="75A-dy-Kva"/>
                         <outlet property="menuHeightConstraint" destination="3eg-Oq-Q4C" id="Yvu-0T-dKN"/>
                         <outlet property="titleLabel" destination="UEw-dP-Dyj" id="gf7-ab-01j"/>
                     </connections>
