@@ -15,6 +15,7 @@ class ViewController: UIViewController
     
     var isMenuOpen = false
     
+    
     override func viewDidLoad()
     {
         super.viewDidLoad()
@@ -45,7 +46,6 @@ class ViewController: UIViewController
             if constraint.identifier == "TitleCenterY"
              {
                 constraint.isActive = false
-                print("924hg294hg")
                 let newConstraint = NSLayoutConstraint(
                     item: titleLabel,
                     attribute: .centerY,
@@ -75,11 +75,45 @@ class ViewController: UIViewController
                         let angle: CGFloat = self.isMenuOpen ? .pi / 4 : 0.0
                         self.butonMenu.transform = CGAffineTransform(rotationAngle: angle)
                         
+                        self.showItem()
         },
                        completion: nil
         )
         
+    }
+    
+    func showItem()
+    {
+        var i: Int = 1
+        let imageView = UIImageView(image: UIImage(named: "\(i).png"))
+            imageView.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0,
+            alpha: 0.5)
+            imageView.layer.cornerRadius = 5.0
+            imageView.layer.masksToBounds = true
+            imageView.translatesAutoresizingMaskIntoConstraints = false
+            view.addSubview(imageView)
         
+        let conX = imageView.centerXAnchor.constraint(equalTo:
+            view.centerXAnchor)
+        let conBottom = imageView.bottomAnchor.constraint(equalTo:
+            view.bottomAnchor, constant: -imageView.frame.height/5)
+        let conWidth = imageView.widthAnchor.constraint(equalTo:
+            view.widthAnchor, multiplier: 0.33, constant: 0)
+        let conHeight = imageView.heightAnchor.constraint(equalTo:
+            imageView.widthAnchor)
+        NSLayoutConstraint.activate([conX, conBottom, conWidth, conHeight])
+        
+        view.layoutIfNeeded()
+        
+        UIView.animate(withDuration: 0.8, delay: 0.0,
+                       usingSpringWithDamping:  0.4, initialSpringVelocity: 0.0,
+                       animations: {
+                        conBottom.constant = -imageView.frame.size.height/2
+                        conWidth.constant = 0.0
+                        self.view.layoutIfNeeded()
+        },
+                       completion: nil
+        )
     }
     
 
