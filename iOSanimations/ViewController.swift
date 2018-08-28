@@ -14,6 +14,7 @@ class ViewController: UIViewController
     @IBOutlet var titleLabel: UILabel!
     
     var isMenuOpen = false
+    var index = 0
     
     
     override func viewDidLoad()
@@ -75,17 +76,27 @@ class ViewController: UIViewController
                         let angle: CGFloat = self.isMenuOpen ? .pi / 4 : 0.0
                         self.butonMenu.transform = CGAffineTransform(rotationAngle: angle)
                         
-                        self.showItem()
+                        if self.isMenuOpen
+                        {
+                            self.showItem()
+                        }
+                        
         },
                        completion: nil
         )
         
     }
     
+    
+    
     func showItem()
     {
-        var i: Int = 1
-        let imageView = UIImageView(image: UIImage(named: "\(i).png"))
+        if index>7
+        {
+            index=0
+        }; index += 1
+        
+        let imageView = UIImageView(image: UIImage(named: "\(index).png"))
             imageView.backgroundColor = UIColor(red: 0.0, green: 0.0, blue: 0.0,
             alpha: 0.5)
             imageView.layer.cornerRadius = 5.0
