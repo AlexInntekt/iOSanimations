@@ -80,10 +80,19 @@ class ViewController: UIViewController
 
         flyRight.beginTime = CACurrentMediaTime() + 0.3 + Double(x)
 
+        flyRight.delegate = self as! CAAnimationDelegate
+        
         return flyRight
     }
     
-  
+}
 
+extension ViewController: CAAnimationDelegate
+{
+    func animationDidStop(_ anim: CAAnimation,
+                          finished flag: Bool)
+    {
+        print("animation did finish")
+    }
 }
 
