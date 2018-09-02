@@ -62,22 +62,24 @@ class ViewController: UIViewController
         groupAnimation.beginTime = CACurrentMediaTime() + 0.5
         groupAnimation.duration = 0.5
         groupAnimation.fillMode = kCAFillModeBackwards
-        groupAnimation.beginTime = CACurrentMediaTime() + 0.9 //delay
+        groupAnimation.beginTime = CACurrentMediaTime() + 1.2 //set a delay
         
-        let scaleDown = CABasicAnimation(keyPath: "transform.scale")
-        scaleDown.fromValue = 3.5
-        scaleDown.toValue = 1.0
+          //***   embedding these animations in the above group
+            let scaleDown = CABasicAnimation(keyPath: "transform.scale")
+            scaleDown.fromValue = 4.0
+            scaleDown.toValue = 1.0
         
-        let rotate = CABasicAnimation(keyPath: "transform.rotation")
-        rotate.fromValue = .pi / 4.0
-        rotate.toValue = 0.0
+            let rotate = CABasicAnimation(keyPath: "transform.rotation")
+            rotate.fromValue = .pi / 4.0
+            rotate.toValue = 0.0
         
-        let fade = CABasicAnimation(keyPath: "opacity")
-        fade.fromValue = 0.0
-        fade.toValue = 1.0
+            let fade = CABasicAnimation(keyPath: "opacity")
+            fade.fromValue = 0.0
+            fade.toValue = 1.0
         
-        groupAnimation.animations = [scaleDown, rotate, fade]
-        button.layer.add(groupAnimation, forKey: nil)
+            groupAnimation.animations = [scaleDown, rotate, fade]
+            button.layer.add(groupAnimation, forKey: nil)
+          //***
     }
     
     
@@ -105,6 +107,8 @@ class ViewController: UIViewController
         
         flyRight.beginTime = CACurrentMediaTime() + 0.3 + Double(x)
 
+        
+        
         return flyRight
     }
     
