@@ -35,8 +35,8 @@ class ViewController: UIViewController
     {
         super.viewWillAppear(animated)
         
-        //textFieldOne.layer.position.x -= view.bounds.width
-        //textFieldTwo.layer.position.x -= view.bounds.width
+        
+        
         
         textFieldOne.layer.add(flyRight(delay: 0), forKey: nil)
         textFieldTwo.layer.add(flyRight(delay: 0.5), forKey: nil)
@@ -56,6 +56,28 @@ class ViewController: UIViewController
         return true
     }
 
+    func animateLoginButton()
+    {
+        let groupAnimation = CAAnimationGroup()
+        groupAnimation.beginTime = CACurrentMediaTime() + 0.5
+        groupAnimation.duration = 0.5
+        groupAnimation.fillMode = kCAFillModeBackwards
+        
+        let scaleDown = CABasicAnimation(keyPath: "transform.scale")
+        scaleDown.fromValue = 3.5
+        scaleDown.toValue = 1.0
+        
+        let rotate = CABasicAnimation(keyPath: "transform.rotation")
+        rotate.fromValue = .pi / 4.0
+        rotate.toValue = 0.0
+        
+        let fade = CABasicAnimation(keyPath: "opacity")
+        fade.fromValue = 0.0
+        fade.toValue = 1.0
+        
+        groupAnimation.animations = [scaleDown, rotate, fade]
+        button.layer.add(groupAnimation, forKey: nil)
+    }
     
     
     @IBAction func buttonFunc(_ sender: Any)
@@ -78,21 +100,14 @@ class ViewController: UIViewController
 
         flyRight.fillMode = kCAFillModeBoth
 
+        flyRight.timingFunction = CAMediaTimingFunction(name: kCAMediaTimingFunctionEaseInEaseOut)
+        
         flyRight.beginTime = CACurrentMediaTime() + 0.3 + Double(x)
 
-        flyRight.delegate = self as! CAAnimationDelegate
-        
         return flyRight
     }
     
 }
 
-extension ViewController: CAAnimationDelegate
-{
-    func animationDidStop(_ anim: CAAnimation,
-                          finished flag: Bool)
-    {
-        print("animation did finish")
-    }
-}
+
 
