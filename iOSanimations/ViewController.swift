@@ -35,7 +35,7 @@ class ViewController: UIViewController
     {
         super.viewWillAppear(animated)
         
-        
+        animateLoginButton()
         
         
         textFieldOne.layer.add(flyRight(delay: 0), forKey: nil)
@@ -62,6 +62,7 @@ class ViewController: UIViewController
         groupAnimation.beginTime = CACurrentMediaTime() + 0.5
         groupAnimation.duration = 0.5
         groupAnimation.fillMode = kCAFillModeBackwards
+        groupAnimation.beginTime = CACurrentMediaTime() + 0.9 //delay
         
         let scaleDown = CABasicAnimation(keyPath: "transform.scale")
         scaleDown.fromValue = 3.5
