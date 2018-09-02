@@ -14,6 +14,7 @@
 		B232865F21277A9F007A8FBF /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B232865D21277A9F007A8FBF /* LaunchScreen.storyboard */; };
 		B232866A21277A9F007A8FBF /* iOSanimationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B232866921277A9F007A8FBF /* iOSanimationsTests.swift */; };
 		B232867521277A9F007A8FBF /* iOSanimationsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B232867421277A9F007A8FBF /* iOSanimationsUITests.swift */; };
+		B2B5FFA2213BD1C700E07BA2 /* AvatarView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B2B5FFA1213BD1C700E07BA2 /* AvatarView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -47,6 +48,8 @@
 		B232867021277A9F007A8FBF /* iOSanimationsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = iOSanimationsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B232867421277A9F007A8FBF /* iOSanimationsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = iOSanimationsUITests.swift; sourceTree = "<group>"; };
 		B232867621277A9F007A8FBF /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B2B5FFA1213BD1C700E07BA2 /* AvatarView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AvatarView.swift; sourceTree = "<group>"; };
+		B2B5FFA3213BD1D700E07BA2 /* Arial Rounded Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Arial Rounded Bold.ttf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -97,7 +100,9 @@
 		B232865321277A9D007A8FBF /* iOSanimations */ = {
 			isa = PBXGroup;
 			children = (
+				B2B5FFA3213BD1D700E07BA2 /* Arial Rounded Bold.ttf */,
 				B232865421277A9D007A8FBF /* AppDelegate.swift */,
+				B2B5FFA1213BD1C700E07BA2 /* AvatarView.swift */,
 				B232865621277A9D007A8FBF /* ViewController.swift */,
 				B232865821277A9D007A8FBF /* Main.storyboard */,
 				B232865B21277A9F007A8FBF /* Assets.xcassets */,
@@ -257,6 +262,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B232865721277A9D007A8FBF /* ViewController.swift in Sources */,
+				B2B5FFA2213BD1C700E07BA2 /* AvatarView.swift in Sources */,
 				B232865521277A9D007A8FBF /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
