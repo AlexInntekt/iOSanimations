@@ -21,6 +21,7 @@
  */
 
 import UIKit
+import QuartzCore
 
 // A delay function
 func delay(seconds: Double, completion: @escaping ()-> Void) {
@@ -85,6 +86,19 @@ class ViewController: UIViewController
     {
         myAvatar.shouldTransitionToFinishedState = true
         opponentAvatar.shouldTransitionToFinishedState = true
+        
+        delay(seconds: 1.0, completion: completed)
+    }
+    
+    func completed()
+    {
+        status.text = "Ready to play"
+        UIView.animate(withDuration: 0.4)
+        {
+            self.vs.alpha = 1.0
+            self.searchAgain.alpha = 1.0
+        }
+        
     }
 }
 

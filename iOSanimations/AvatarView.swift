@@ -42,6 +42,8 @@ class AvatarView: UIView {
         return label
     }()
     
+    var isSquare = false
+    
     //variables
     @IBInspectable
     var image: UIImage? = nil {
@@ -82,6 +84,7 @@ class AvatarView: UIView {
         
         //Draw the circle
         circleLayer.path = UIBezierPath(ovalIn: bounds).cgPath
+        
         circleLayer.strokeColor = UIColor.white.cgColor
         circleLayer.lineWidth = lineWidth
         circleLayer.fillColor = UIColor.clear.cgColor
@@ -94,17 +97,31 @@ class AvatarView: UIView {
         label.frame = CGRect(x: 0.0, y: bounds.size.height + 10.0, width: bounds.size.width, height: 24.0)
     }
     
+    func animateToSquare()
+    {
+        print("\n calling animateToSquare()... ")
+        isSquare = true
+        let squarePath = UIBezierPath(rect:
+            bounds).cgPath
+        self.circleLayer.path = squarePath
+    }
+    
     func bounceOff(point: CGPoint, morphSize: CGSize)
     {
         let originalCenter = center
         UIView.animate(withDuration: animationDuration, delay: 0.0,
                        usingSpringWithDamping: 0.8, initialSpringVelocity: 0.0,
-                       animations: {
+                       animations:
+            {
                         self.center = point
         },
-                       completion: {_ in
-                        //complete bounce to
-        } )
+                       completion:
+            {_ in
+                        if self.shouldTransitionToFinishedState
+                        {
+                            self.animateToSquare()
+                        }
+            } )
         
         UIView.animate(withDuration: animationDuration,
                        delay: animationDuration, usingSpringWithDamping: 0.7,
@@ -115,7 +132,10 @@ class AvatarView: UIView {
                        completion: {_ in
                         delay(seconds: 0.1)
                         {
-                            self.bounceOff(point: point, morphSize: morphSize)
+                            if !self.isSquare
+                            {
+                                self.bounceOff(point: point, morphSize: morphSize)
+                            }
                         }
         } )
         
