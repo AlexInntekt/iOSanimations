@@ -68,6 +68,23 @@ class ViewController: UIViewController
                            morphSize: morphSize)
         opponentAvatar.bounceOff(point: leftBouncePoint,
                                  morphSize: morphSize)
+        
+         delay(seconds: 4.0, completion: foundOpponent)
+    }
+    
+    func foundOpponent()
+    {
+        status.text = "Connecting..."
+        opponentAvatar.image = UIImage(named: "avatar-2")
+        opponentAvatar.name = "Ray"
+        
+        delay(seconds: 4.0, completion: connectedToOpponent)
+    }
+    
+    func connectedToOpponent()
+    {
+        myAvatar.shouldTransitionToFinishedState = true
+        opponentAvatar.shouldTransitionToFinishedState = true
     }
 }
 
