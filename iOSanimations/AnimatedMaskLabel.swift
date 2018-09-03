@@ -27,6 +27,19 @@ import QuartzCore
 class AnimatedMaskLabel: UIView
 {
     
+    
+    let textAttributes: [NSAttributedStringKey: Any] = {
+        let style = NSMutableParagraphStyle()
+        style.alignment = .center
+        return [
+            kCTFontAttributeName as NSAttributedStringKey: UIFont(
+        name: "HelveticaNeue-Thin",
+        size: 28.0)!,
+        NSAttributedStringKey.paragraphStyle: style
+        ]
+        }()
+    
+    
     let gradientLayer: CAGradientLayer =
     {
         let gradientLayer = CAGradientLayer()
@@ -59,6 +72,18 @@ class AnimatedMaskLabel: UIView
         {
         didSet {
             setNeedsDisplay()
+            
+            let image = UIGraphicsImageRenderer(size: bounds.size)
+                .image
+                { _ in
+                 text.draw(in: bounds, withAttributes: textAttributes)
+                }
+            let maskLayer = CALayer()
+            maskLayer.backgroundColor = UIColor.clear.cgColor
+            maskLayer.frame = bounds.offsetBy(dx: bounds.size.width, dy: 0)
+            maskLayer.contents = image.cgImage
+            
+            gradientLayer.mask = maskLayer
         }
     }
     
@@ -88,6 +113,9 @@ class AnimatedMaskLabel: UIView
         gradientLayer.add(gradientAnimation, forKey: nil)
         
     }
+    
+    
+    
     
 }
 
